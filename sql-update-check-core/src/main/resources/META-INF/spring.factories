@@ -1,0 +1,5 @@
+# Auto Configure
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+top.zgod.sqlupdatecheck.config.SqlUpdateCheckConfig,\
+top.zgod.sqlupdatecheck.handler.impl.DefaultJdbcDataHandler,\
+top.zgod.sqlupdatecheck.handler.impl.DefaultRemindHandler
