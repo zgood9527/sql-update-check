@@ -6,9 +6,39 @@
 
   <groupId>top.zgod.sqlupdatecheck</groupId>
   <artifactId>sql-update-check-core</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.0.0.RELEASE</version>
 
   <name>sql-update-check-core</name>
+  <description>Automated database entity class checking tools</description>
+  <url>https://github.com/ZGOD9527/sql-update-check</url>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:https://github.com/ZGOD9527/sql-update-check.git</connection>
+    <developerConnection>scm:git:https://github.com/ZGOD9527/sql-update-check.git</developerConnection>
+    <url>scm:git:https://github.com/ZGOD9527/sql-update-check</url>
+  </scm>
+
+  <issueManagement>
+    <system>sql update check</system>
+    <url>https://github.com/ZGOD9527/sql-update-check/issues</url>
+  </issueManagement>
+
+  <developers>
+    <developer>
+      <name>zgod</name>
+      <email>250029634@qq.com</email>
+      <organization>github</organization>
+      <organizationUrl>https://github.com/ZGOD9527</organizationUrl>
+    </developer>
+  </developers>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -95,7 +125,55 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>3.1.0</version>
+          <executions>
+            <execution>
+              <id>nexus-release</id>
+              <phase>package</phase>
+              <goals>
+                <goal>jar-no-fork</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <!-- GPG -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.6</version>
+            <executions>
+              <execution>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <distributionManagement>
+        <snapshotRepository>
+          <id>nexus-release</id>
+          <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+          <id>nexus-release</id>
+          <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+      </distributionManagement>
+    </profile>
+  </profiles>
 </project>
