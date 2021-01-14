@@ -1,0 +1,1 @@
+使用前请将resources中的test.sql执行到本地数据库中
