@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 /**
@@ -9,12 +10,12 @@ public class DoubleToDoubleObjTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "double";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.DOUBLE;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return Double.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return Double.class;
     }
 }

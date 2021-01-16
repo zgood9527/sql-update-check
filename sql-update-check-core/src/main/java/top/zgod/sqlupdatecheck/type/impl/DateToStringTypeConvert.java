@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 
@@ -10,12 +11,12 @@ public class DateToStringTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "date";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.DATE;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return String.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return String.class;
     }
 }

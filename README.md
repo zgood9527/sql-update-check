@@ -24,7 +24,7 @@ maven方式
 <dependency>
   <groupId>top.zgod.sqlupdatecheck</groupId>
   <artifactId>sql-update-check-core</artifactId>
-  <version>1.0.0.RELEASE</version>
+  <version>1.0.1.RELEASE</version>
 </dependency>
 ```
 ## 使用
@@ -90,13 +90,13 @@ public class VarcharToLongTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.VARCHAR.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.VARCHAR;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return "int";
+    public Class<?> getInitJavaColumnTypeName() {
+        return int.class;
     }
 }
 

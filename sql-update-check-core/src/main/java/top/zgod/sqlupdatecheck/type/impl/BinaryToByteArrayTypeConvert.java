@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 
@@ -10,12 +11,12 @@ public class BinaryToByteArrayTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "binary";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.BINARY;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return "byte[]";
+    public Class<?> getInitJavaColumnTypeName() {
+        return byte[].class;
     }
 }

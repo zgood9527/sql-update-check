@@ -1,8 +1,9 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
-import java.sql.JDBCType;
+
 
 /**
  * @author ZGOD
@@ -11,12 +12,12 @@ public class LongvarcharToStringTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.LONGVARCHAR.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.LONGVARCHAR;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return String.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return String.class;
     }
 }

@@ -1,8 +1,9 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
-import java.sql.JDBCType;
+
 
 /**
  * @author ZGOD
@@ -11,12 +12,12 @@ public class DecimalToDoubleTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.DECIMAL.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.DECIMAL;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return "double";
+    public Class<?> getInitJavaColumnTypeName() {
+        return double.class;
     }
 }

@@ -1,9 +1,9 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 import java.lang.reflect.Array;
-import java.sql.JDBCType;
 
 
 /**
@@ -13,12 +13,12 @@ public class ArrayToArrayTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.ARRAY.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.ARRAY;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return Array.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return Array.class;
     }
 }

@@ -1,9 +1,10 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 import java.math.BigDecimal;
-import java.sql.JDBCType;
+
 
 /**
  * @author ZGOD
@@ -12,13 +13,13 @@ public class DecimalToBigDecimalTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.DECIMAL.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.DECIMAL;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return BigDecimal.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return BigDecimal.class;
     }
 
 }

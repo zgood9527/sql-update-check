@@ -1,8 +1,8 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
-import java.sql.JDBCType;
 
 /**
  * @author ZGOD
@@ -11,13 +11,13 @@ public class CharToStringTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.CHAR.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.CHAR;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return String.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return String.class;
     }
 
 }

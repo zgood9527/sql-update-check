@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 /**
@@ -8,12 +9,12 @@ import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 public class IntToIntegerTypeConvert extends AbstractTypeConvert {
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "int";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.INT;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return Integer.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return Integer.class;
     }
 }

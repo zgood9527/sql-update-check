@@ -1,8 +1,8 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
-import java.sql.JDBCType;
 
 
 /**
@@ -12,13 +12,13 @@ public class BigintToLongObjTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.BIGINT.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.BIGINT;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return Long.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return Long.class;
     }
 
 }

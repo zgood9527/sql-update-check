@@ -6,7 +6,7 @@
 
   <groupId>top.zgod.sqlupdatecheck</groupId>
   <artifactId>sql-update-check-core</artifactId>
-  <version>1.0.0.RELEASE</version>
+  <version>1.0.1.RELEASE</version>
 
   <name>sql-update-check-core</name>
   <description>Automated database entity class checking tools</description>

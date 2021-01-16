@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 import java.util.Date;
@@ -12,12 +13,12 @@ public class DatetimeToDateTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "datetime";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.DATETIME;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return Date.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return Date.class;
     }
 }

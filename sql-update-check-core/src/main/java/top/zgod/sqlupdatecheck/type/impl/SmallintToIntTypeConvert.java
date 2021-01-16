@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 /**
@@ -8,12 +9,12 @@ import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 public class SmallintToIntTypeConvert extends AbstractTypeConvert {
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "smallint";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.SMALLINT;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return "int";
+    public Class<?> getInitJavaColumnTypeName() {
+        return int.class;
     }
 }

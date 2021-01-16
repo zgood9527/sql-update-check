@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 /**
@@ -9,12 +10,12 @@ public class NumericToFloatTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "numeric";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.NUMERIC;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return "float";
+    public Class<?> getInitJavaColumnTypeName() {
+        return float.class;
     }
 }

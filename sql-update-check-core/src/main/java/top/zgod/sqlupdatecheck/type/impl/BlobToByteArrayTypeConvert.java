@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 /**
@@ -9,12 +10,12 @@ public class BlobToByteArrayTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "blob";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.BLOB;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return "byte[]";
+    public Class<?> getInitJavaColumnTypeName() {
+        return byte[].class;
     }
 }

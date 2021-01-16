@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 
@@ -10,12 +11,12 @@ public class TimeToStringTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "time";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.TIME;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return String.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return String.class;
     }
 }

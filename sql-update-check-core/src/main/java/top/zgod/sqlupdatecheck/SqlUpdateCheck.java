@@ -185,13 +185,11 @@ public class SqlUpdateCheck implements ImportBeanDefinitionRegistrar, Applicatio
         ArrayList<TypeConvert> typePars = new ArrayList<>();
         for (Class<?> aClass : classes) {
             AbstractTypeConvert abstractTypeConvert = (AbstractTypeConvert) aClass.newInstance();
-            abstractTypeConvert.checkJavaColumnTypeName();
-            abstractTypeConvert.checkJdbcColumnTypeName();
             typePars.add(abstractTypeConvert);
         }
         //相同数据库类型为一个键，java类型存到集合中
         return typePars
-                .stream().collect(Collectors.groupingBy(TypeConvert::getInitJdbcColumnTypeName));
+                .stream().collect(Collectors.groupingBy(typeConvert -> typeConvert.getInitJdbcColumnTypeName().getName()));
 
     }
 
@@ -386,7 +384,7 @@ public class SqlUpdateCheck implements ImportBeanDefinitionRegistrar, Applicatio
         typeParseMap.forEach((jdbcTypeName, typeParses) -> {
             if (!StringUtils.isEmpty(jdbcColumnType) && jdbcColumnType.equals(jdbcTypeName.toLowerCase())) {
                 for (TypeConvert typePars : typeParses) {
-                    String initJavaColumnType = typePars.getInitJavaColumnTypeName();
+                    String initJavaColumnType = typePars.getInitJavaColumnTypeName().getName();
                     if (javaColumnType.equals(initJavaColumnType)) {
                         notFit.set(false);
                         break;

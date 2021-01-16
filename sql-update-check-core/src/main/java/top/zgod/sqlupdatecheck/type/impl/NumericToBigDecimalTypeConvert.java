@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 import java.math.BigDecimal;
@@ -11,12 +12,12 @@ public class NumericToBigDecimalTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "numeric";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.NUMERIC;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return BigDecimal.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return BigDecimal.class;
     }
 }

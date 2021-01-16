@@ -1,8 +1,8 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
-import java.sql.JDBCType;
 
 /**
  * @author ZGOD
@@ -11,12 +11,12 @@ public class DecimalToFloatTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return JDBCType.DECIMAL.getName();
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.DECIMAL;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return "float";
+    public Class<?> getInitJavaColumnTypeName() {
+        return float.class;
     }
 }

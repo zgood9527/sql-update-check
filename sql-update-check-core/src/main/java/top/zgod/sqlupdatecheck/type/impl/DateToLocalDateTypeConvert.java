@@ -2,7 +2,9 @@ package top.zgod.sqlupdatecheck.type.impl;
 
 
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
+
 
 import java.time.LocalDate;
 
@@ -13,12 +15,12 @@ public class DateToLocalDateTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "date";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.DATE;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return LocalDate.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return LocalDate.class;
     }
 }

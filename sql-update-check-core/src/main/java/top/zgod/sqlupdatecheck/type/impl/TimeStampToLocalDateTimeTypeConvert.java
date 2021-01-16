@@ -1,5 +1,6 @@
 package top.zgod.sqlupdatecheck.type.impl;
 
+import top.zgod.sqlupdatecheck.bean.JdbcType;
 import top.zgod.sqlupdatecheck.type.AbstractTypeConvert;
 
 import java.time.LocalDateTime;
@@ -12,12 +13,12 @@ public class TimeStampToLocalDateTimeTypeConvert extends AbstractTypeConvert {
 
 
     @Override
-    public String getInitJdbcColumnTypeName() {
-        return "timestamp";
+    public JdbcType getInitJdbcColumnTypeName() {
+        return JdbcType.TIMESTAMP;
     }
 
     @Override
-    public String getInitJavaColumnTypeName() {
-        return LocalDateTime.class.getName();
+    public Class<?> getInitJavaColumnTypeName() {
+        return LocalDateTime.class;
     }
 }

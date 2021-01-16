@@ -1,94 +1,261 @@
 package top.zgod.sqlupdatecheck.bean;
 
-import java.sql.JDBCType;
+
+import java.sql.SQLType;
 import java.sql.Types;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author ZGOD
  */
-public enum JdbcType {
-    /*
-     * This is added to enable basic support for the
-     * ARRAY data type - but a custom type handler is still required
-     * 下面注释掉的是已经加了映射处理
+public enum JdbcType implements SQLType {
+    /**
+     * Identifies the generic SQL type {@code BIT}.
      */
-    // ARRAY(Types.ARRAY),
-    // BIT(Types.BIT),
-//    TINYINT(Types.TINYINT),
-//    SMALLINT(Types.SMALLINT),
-    // INTEGER(Types.INTEGER),
-    // BIGINT(Types.BIGINT),
-//    FLOAT(Types.FLOAT),
-//    REAL(Types.REAL),
-//    DOUBLE(Types.DOUBLE),
-//    NUMERIC(Types.NUMERIC),
-//    DECIMAL(Types.DECIMAL),
-//    CHAR(Types.CHAR),
-//    VARCHAR(Types.VARCHAR),
-//    LONGVARCHAR(Types.LONGVARCHAR),
-//    DATE(Types.DATE),
-//    TIME(Types.TIME),
-//    TIMESTAMP(Types.TIMESTAMP),
-//    BINARY(Types.BINARY),
-//    VARBINARY(Types.VARBINARY),
-//    LONGVARBINARY(Types.LONGVARBINARY),
+    BIT(Types.BIT),
+    /**
+     * Identifies the generic SQL type {@code TINYINT}.
+     */
+    TINYINT(Types.TINYINT),
+    /**
+     * Identifies the generic SQL type {@code SMALLINT}.
+     */
+    SMALLINT(Types.SMALLINT),
+    /**
+     * Identifies the generic SQL type {@code INTEGER}.
+     */
+    INTEGER(Types.INTEGER),
+    /**
+     * Notice: Custom extensions, not JDBC
+     * Identifies the generic SQL type {@code INT}.
+     */
+    INT(Types.INTEGER),
+    /**
+     * Identifies the generic SQL type {@code BIGINT}.
+     */
+    BIGINT(Types.BIGINT),
+    /**
+     * Identifies the generic SQL type {@code FLOAT}.
+     */
+    FLOAT(Types.FLOAT),
+    /**
+     * Identifies the generic SQL type {@code REAL}.
+     */
+    REAL(Types.REAL),
+    /**
+     * Identifies the generic SQL type {@code DOUBLE}.
+     */
+    DOUBLE(Types.DOUBLE),
+    /**
+     * Identifies the generic SQL type {@code NUMERIC}.
+     */
+    NUMERIC(Types.NUMERIC),
+    /**
+     * Identifies the generic SQL type {@code DECIMAL}.
+     */
+    DECIMAL(Types.DECIMAL),
+    /**
+     * Identifies the generic SQL type {@code CHAR}.
+     */
+    CHAR(Types.CHAR),
+    /**
+     * Identifies the generic SQL type {@code VARCHAR}.
+     */
+    VARCHAR(Types.VARCHAR),
+    /**
+     * Notice: Custom extensions, not JDBC
+     * Identifies the generic SQL type {@code TEXT}.
+     */
+    TEXT(Types.VARCHAR),
+    /**
+     * Identifies the generic SQL type {@code LONGVARCHAR}.
+     */
+    LONGVARCHAR(Types.LONGVARCHAR),
+    /**
+     * Notice: Custom extensions, not JDBC
+     * Identifies the generic SQL type {@code LONGTEXT}.
+     */
+    LONGTEXT(Types.LONGVARCHAR),
+    /**
+     * Identifies the generic SQL type {@code DATE}.
+     */
+    DATE(Types.DATE),
+    /**
+     * Notice: Custom extensions, not JDBC
+     * Identifies the generic SQL type {@code DATETIME}.
+     */
+    DATETIME(Types.TIMESTAMP),
+    /**
+     * Identifies the generic SQL type {@code TIME}.
+     */
+    TIME(Types.TIME),
+    /**
+     * Identifies the generic SQL type {@code TIMESTAMP}.
+     */
+    TIMESTAMP(Types.TIMESTAMP),
+    /**
+     * Identifies the generic SQL type {@code BINARY}.
+     */
+    BINARY(Types.BINARY),
+    /**
+     * Identifies the generic SQL type {@code VARBINARY}.
+     */
+    VARBINARY(Types.VARBINARY),
+    /**
+     * Identifies the generic SQL type {@code LONGVARBINARY}.
+     */
+    LONGVARBINARY(Types.LONGVARBINARY),
+    /**
+     * Identifies the generic SQL value {@code NULL}.
+     */
     NULL(Types.NULL),
+    /**
+     * Indicates that the SQL type
+     * is database-specific and gets mapped to a Java object that can be
+     * accessed via the methods getObject and setObject.
+     */
     OTHER(Types.OTHER),
-    //    BLOB(Types.BLOB),
-//    CLOB(Types.CLOB),
-//    BOOLEAN(Types.BOOLEAN),
-// Oracle
-    CURSOR(-10),
-    UNDEFINED(Integer.MIN_VALUE + 1000),
-    // JDK6
-//    NVARCHAR(Types.NVARCHAR),
-    // JDK6
-//    NCHAR(Types.NCHAR),
-    // JDK6
-//    NCLOB(Types.NCLOB),
-    STRUCT(Types.STRUCT),
+    /**
+     * Indicates that the SQL type
+     * is database-specific and gets mapped to a Java object that can be
+     * accessed via the methods getObject and setObject.
+     */
     JAVA_OBJECT(Types.JAVA_OBJECT),
+    /**
+     * Identifies the generic SQL type {@code DISTINCT}.
+     */
     DISTINCT(Types.DISTINCT),
+    /**
+     * Identifies the generic SQL type {@code STRUCT}.
+     */
+    STRUCT(Types.STRUCT),
+    /**
+     * Identifies the generic SQL type {@code ARRAY}.
+     */
+    ARRAY(Types.ARRAY),
+    /**
+     * Identifies the generic SQL type {@code BLOB}.
+     */
+    BLOB(Types.BLOB),
+    /**
+     * Identifies the generic SQL type {@code CLOB}.
+     */
+    CLOB(Types.CLOB),
+    /**
+     * Identifies the generic SQL type {@code REF}.
+     */
     REF(Types.REF),
+    /**
+     * Identifies the generic SQL type {@code DATALINK}.
+     */
     DATALINK(Types.DATALINK),
-    // JDK6
+    /**
+     * Identifies the generic SQL type {@code BOOLEAN}.
+     */
+    BOOLEAN(Types.BOOLEAN),
+
+    /* JDBC 4.0 Types */
+
+    /**
+     * Identifies the SQL type {@code ROWID}.
+     */
     ROWID(Types.ROWID),
-    // JDK6
-//    LONGNVARCHAR(Types.LONGNVARCHAR),
-    // JDK6
+    /**
+     * Identifies the generic SQL type {@code NCHAR}.
+     */
+    NCHAR(Types.NCHAR),
+    /**
+     * Identifies the generic SQL type {@code NVARCHAR}.
+     */
+    NVARCHAR(Types.NVARCHAR),
+    /**
+     * Identifies the generic SQL type {@code LONGNVARCHAR}.
+     */
+    LONGNVARCHAR(Types.LONGNVARCHAR),
+    /**
+     * Identifies the generic SQL type {@code NCLOB}.
+     */
+    NCLOB(Types.NCLOB),
+    /**
+     * Identifies the generic SQL type {@code SQLXML}.
+     */
     SQLXML(Types.SQLXML),
-    // SQL Server 2008
-    DATETIMEOFFSET(-155),
-    // JDBC 4.2 JDK8
+
+    /* JDBC 4.2 Types */
+
+    /**
+     * Identifies the generic SQL type {@code REF_CURSOR}.
+     */
+    REF_CURSOR(Types.REF_CURSOR),
+
+    /**
+     * Identifies the generic SQL type {@code TIME_WITH_TIMEZONE}.
+     */
     TIME_WITH_TIMEZONE(Types.TIME_WITH_TIMEZONE),
-    // JDBC 4.2 JDK8
+
+    /**
+     * Identifies the generic SQL type {@code TIMESTAMP_WITH_TIMEZONE}.
+     */
     TIMESTAMP_WITH_TIMEZONE(Types.TIMESTAMP_WITH_TIMEZONE);
 
-    public final int TYPE_CODE;
-    private static Map<Integer, JdbcType> codeLookup = new HashMap<>();
+    /**
+     * The Integer value for the JdbcType.  It maps to a value in
+     * {@code Types.java}
+     */
+    private Integer type;
 
-    static {
-        for (JdbcType type : JdbcType.values()) {
-            codeLookup.put(type.TYPE_CODE, type);
-        }
+    /**
+     * Constructor to specify the data type value from {@code Types) for
+     * this data type.
+     * @param type The value from {@code Types) for this data type
+     */
+    JdbcType(final Integer type) {
+        this.type = type;
     }
 
-    JdbcType(int code) {
-        this.TYPE_CODE = code;
-        JDBCType[] values = JDBCType.values();
-        for (JDBCType value : values) {
-            Integer vendorTypeNumber = value.getVendorTypeNumber();
-            if (code == vendorTypeNumber) {
-                String name = value.getName().toLowerCase();
-                System.out.println(name);
+    /**
+     *{@inheritDoc }
+     * @return The name of this {@code SQLType}.
+     */
+    @Override
+    public String getName() {
+        return name();
+    }
+    /**
+     * Returns the name of the vendor that supports this data type.
+     * @return  The name of the vendor for this data type which is
+     * {@literal java.sql} for JdbcType.
+     */
+    @Override
+    public String getVendor() {
+        return "java.sql";
+    }
+
+    /**
+     * Returns the vendor specific type number for the data type.
+     * @return  An Integer representing the data type. For {@code JDBCType},
+     * the value will be the same value as in {@code Types} for the data type.
+     */
+    @Override
+    public Integer getVendorTypeNumber() {
+        return type;
+    }
+    /**
+     * Returns the {@code JDBCType} that corresponds to the specified
+     * {@code Types} value
+     * @param type {@code Types} value
+     * @return The {@code JDBCType} constant
+     * @throws IllegalArgumentException if this enum type has no constant with
+     * the specified {@code Types} value
+     * @see Types
+     */
+    public static JdbcType valueOf(int type) {
+        for( JdbcType sqlType : JdbcType.class.getEnumConstants()) {
+            if(type == sqlType.type) {
+                return sqlType;
             }
         }
-    }
-
-    public static JdbcType forCode(int code) {
-        return codeLookup.get(code);
+        throw new IllegalArgumentException("Type:" + type + " is not a valid "
+                + "Types.java value.");
     }
 
 }
